@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
@@ -12,6 +12,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+  MatDialogContent,
+} from '@angular/material/dialog';
  
 import { Itemmaster } from '../../models/itemmaster';
 import { SelectOnFocusDirective } from "../../custom-directives/select-on-focus.directive";
@@ -29,7 +34,8 @@ import { SelectOnFocusDirective } from "../../custom-directives/select-on-focus.
     MatRadioModule,
     MatSelectModule,
     MatIconModule,
-    SelectOnFocusDirective
+    SelectOnFocusDirective,
+    MatDialogContent
 ],
   templateUrl: './item-form.component.html',
   styleUrls: ['./item-form.component.css']
@@ -47,7 +53,9 @@ export class ItemFormComponent implements OnInit {
     private service: ItemmasterService,
     private route: ActivatedRoute,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public dialogRef: MatDialogRef<ItemFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
   ) {}
  
   get f(){
@@ -68,22 +76,13 @@ export class ItemFormComponent implements OnInit {
       isActive:[true]
     });
  
-    this.id = this.route.snapshot.params['id'];
- 
-    if (this.id) {
+        if (this.data) {
       this.isEdit = true;
- 
-      this.service.GetById(this.id).subscribe({
-        next: (res:any) => {
-          this.form.patchValue(res.data);
-        },
-        error: () => {
-          this.snackBar.open('Error loading item', 'Close', { duration: 3000 });
-        }
-      });
+      this.id = this.data.id;
+      this.form.patchValue(this.data);
     }
   }
- 
+
   submit() {
     this.isSubmitted = true;
     if(this.form.invalid)
@@ -103,10 +102,7 @@ export class ItemFormComponent implements OnInit {
     if (this.isEdit) {
       this.service.Update(this.id, payload).subscribe({
         next: () => {
-          this.snackBar.open('Item updated successfully', 'Close', {
-            duration: 3000
-          });
-          this.router.navigate(['/masters/items']);
+            this.dialogRef.close(true);
         },
         error: () => {
           this.snackBar.open('Error updating item', 'Close', {
@@ -117,11 +113,9 @@ export class ItemFormComponent implements OnInit {
     } else {
       this.service.create(payload).subscribe({
         next: () => {
-          this.snackBar.open('Item created successfully', 'Close', {
-            duration: 3000
-          });
-          this.router.navigate(['/masters/items']);
+            this.dialogRef.close(true);
         },
+         
         error: () => {
           this.snackBar.open('Error creating item', 'Close', {
             duration: 3000
@@ -130,4 +124,12 @@ export class ItemFormComponent implements OnInit {
       });
     }
   }
+  allowOnlyNumbers(event: KeyboardEvent) {
+    const charCode = event.key;
+ 
+    if (!/^[0-9]$/.test(charCode)) {
+      event.preventDefault();
+    }
+  }
 }
+ 
