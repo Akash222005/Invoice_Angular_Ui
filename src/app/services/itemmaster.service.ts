@@ -8,7 +8,7 @@ import { PagedResult }from "../models/paged-result";
  
 export class ItemmasterService
 {
-    private apiUrl="http://localhost:5234/api/v1/ItemMaster";
+    private apiUrl="http://localhost:5234/api/ItemMaster";
     items = signal<Itemmaster[]>([]);
     constructor(private http:HttpClient){}
     getPagedItems(
