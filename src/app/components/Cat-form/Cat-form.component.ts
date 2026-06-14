@@ -88,7 +88,7 @@ export class CatFormComponent implements OnInit
           this.dialogRef.close(true);
         },
         error: () => {
-          this.snackBar.open('Error updating item', 'Close', {
+          this.snackBar.open('Error updating category', 'Close', {
             duration: 3000
           });
         },
@@ -99,7 +99,7 @@ export class CatFormComponent implements OnInit
           this.dialogRef.close(true);
         },
         error: () => {
-          this.snackBar.open('Error creating item', 'Close', {
+          this.snackBar.open('Error creating category', 'Close', {
             duration: 3000
           });
         },
