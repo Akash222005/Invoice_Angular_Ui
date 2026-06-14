@@ -9,7 +9,7 @@ import { Category } from "../models/Category";
 export class CategoryService
 {
     private apiUrl="http://localhost:5234/api/Category";
-    items = signal<Category[]>([]);
+    Categories = signal<Category[]>([]);
     constructor(private http:HttpClient){}
     getPagedcategory
     (
