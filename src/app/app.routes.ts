@@ -11,12 +11,13 @@ export const routes: Routes = [
     path: 'masters',
     canActivate: [authGuard],
     children: [
-     { path: 'categories', loadComponent: () => import('./components/Cat-list/Cat-list.component').then(m => m.CatListComponent) },
+      { path: 'users', loadComponent: () => import('./components/Users-list/Users-list.component').then(m => m.UsersListComponent) },
+      { path: 'categories', loadComponent: () => import('./components/Cat-list/Cat-list.component').then(m => m.CatListComponent) },
       { path: 'items', loadComponent: () => import('./components/item-list/item-list.component').then(m => m.ItemListComponent) },
       { path: 'items/create', loadComponent: () => import('./components/item-form/item-form.component').then(m => m.ItemFormComponent) },
       { path: 'items/edit/:id', loadComponent: () => import('./components/item-form/item-form.component').then(m => m.ItemFormComponent) },
-      { path: 'customers', loadComponent: () => import('./components/item-list/item-list.component').then(m => m.ItemListComponent) },
-      { path: 'vendors', loadComponent: () => import('./components/Vendor-list/Vendor-list.component').then(m => m.VendorListComponent) }
+{ path: 'customers', loadComponent: () => import('./components/Customer-list/Customer-list.component').then(m => m.CustomerListComponent) },
+{ path: 'vendors', loadComponent: () => import('./components/Vendor-list/Vendor-list.component').then(m => m.VendorListComponent) },
     ]
   },
  

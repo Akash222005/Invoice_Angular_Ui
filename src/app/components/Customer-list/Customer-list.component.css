@@ -27,17 +27,4 @@ tr:hover {
   max-width: 175px;         /* adjust width for 25 chars */
   line-height: 1.2;         /* optional: better spacing */
 }
- .mat-mdc-unelevated-button.mat-warn {
-
-    background-color: #dc3545 !important;
-
-    color: white !important;
-
-}
- 
-.mat-mdc-unelevated-button.mat-warn:hover {
-
-    background-color: #c82333 !important;
-
-}
  
