@@ -27,4 +27,11 @@ tr:hover {
   max-width: 175px;         /* adjust width for 25 chars */
   line-height: 1.2;         /* optional: better spacing */
 }
+.delete-btn {
+    background-color: #f44336 !important;
+    color: white !important;
+}
  
+.delete-btn:hover {
+    background-color: #d32f2f !important;
+}
