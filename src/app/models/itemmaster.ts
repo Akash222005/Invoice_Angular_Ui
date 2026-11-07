@@ -1,15 +1,15 @@
 export interface Itemmaster
 {
-    Id:number;
-    CatCode:string;
-    ItemBarCode:string;
-    ItemCode:string;
-    ItemName:string;
+    id:number;
+    CategoryId:number;
+    itemBarCode:string;
+    itemCode:string;
+    itemName:string;
     description?:string;
     Uom:string;
     rate?:number;
     MinimumStock:number;
     MaximumStock:number;
-    isActive:number;
+    isActive:boolean;
  
 }
