@@ -3,17 +3,19 @@ import { Component } from "@angular/core";
 import { AuthService } from '../../services/auth.service';
 import { LoginRequest } from '../../models/loginrequest';
 import { FormsModule } from '@angular/forms';
+import { RouterLink} from '@angular/router';
+
 @Component({
   selector:'app-home',
   standalone:true,
-  imports:[CommonModule, FormsModule],
+  imports:[CommonModule, FormsModule, RouterLink],
   templateUrl:'./home.component.html',
   styleUrl:'./home.component.css'
 })
 export class HomeComponent{
   isLoginSuccess: boolean | null = null;
   userName = 'admin';
-  password = 'password';
+  password = 'Admin@123';
   message = '';
  
   constructor(private service: AuthService) {}
@@ -23,8 +25,9 @@ export class HomeComponent{
       password: this.password,
 };
 this.service.login(param).subscribe({
-      next: (res) => {
-        this.service.setSession(res.token, res.expiration);
+      next: (response) => {
+        console.log("Login response=",response);
+        this.service.setSession(response.data.token, response.data.expiration);
         this.isLoginSuccess = true;
         this.message = 'Login Successfull';
       },

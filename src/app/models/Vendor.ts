@@ -1,18 +1,31 @@
 export interface Vendor
 {
-    Id: number;
-    VendorCode: string;
-    VendorName: string;
-    ContactPerson?: string;
-    MobileNo?: string;
-    Email?: string;
-    Address1?: string;
-    Address2?: string;
-    City?: string;
-    State?: string;
-    Country?: string;
-    ZipCode?: string;
-    GstNo?: string;
-    IsActive?: boolean;
-    IsDeleted?: boolean;
+    id: number;
+    vendorCode: string;
+    vendorName: string;
+    city?: string;
+    state?: string;
+    isActive?: boolean|null;
 }
+export interface VendorFilter {
+
+  vendorCode: string;
+  vendorName: string;
+  city: string;
+  isActive: boolean | null;
+  pageNumber: number;
+  pageSize: number;
+
+}
+ 
+export interface VendorRequest {
+
+  vendorCode: string;
+  vendorName: string;
+  city: string | null;
+  state: string | null;
+  isActive: boolean;
+
+}
+
+ 
