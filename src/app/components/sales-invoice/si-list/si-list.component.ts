@@ -31,7 +31,7 @@ import {
   SalesInvoice,
   SalesInvoiceFilter,
 } from '../../../models/sales-invoice';
-import { Customer } from '../../../models/Customer';
+import { Customer } from '../../../models/customer';
 import { DOC_STATUSES } from '../../../models/document-status';
 import { getApiMessage } from '../../../shared/api-helpers';
 import {

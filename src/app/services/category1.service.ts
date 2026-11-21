@@ -5,7 +5,7 @@
   import { environment } from '../../environments/environment';
   import { ApiResponse } from '../models/Api-response';
   import { Category, CategoryFilter, CategoryRequest } from '../models/Category';
-  import { CustomerRequest } from '../models/Customer';
+  import { CustomerRequest } from '../models/customer';
 
       /** All Category endpoints: api/v1/Category/... */
   @Injectable({ providedIn: 'root' })

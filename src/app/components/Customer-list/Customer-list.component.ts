@@ -16,7 +16,7 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CustomerService } from '../../services/Customer.service';
-import { Customer, CustomerFilter } from '../../models/Customer';
+import { Customer, CustomerFilter } from '../../models/customer';
 import { getApiMessage } from '../../shared/api-helpers';
 import { failMessage, isOk } from '../../shared/api-result';
 import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dialog.component';

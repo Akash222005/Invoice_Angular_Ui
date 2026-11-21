@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ApiResponse } from '../models/Api-response';
 import { PagedResult } from '../models/paged-result';
-import { Customer, CustomerFilter, CustomerRequest } from '../models/Customer';
+import { Customer, CustomerFilter, CustomerRequest } from '../models/customer';
 
 /** All Customer endpoints: api/v1/Customer/... */
 @Injectable({ providedIn: 'root' })
