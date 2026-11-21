@@ -9,7 +9,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CustomerService } from '../../services/Customer.service';
-import { CustomerRequest } from '../../models/Customer';
+import { CustomerRequest } from '../../models/customer';
 import { getApiMessage } from '../../shared/api-helpers';
 import { failMessage, isOk } from '../../shared/api-result';
 

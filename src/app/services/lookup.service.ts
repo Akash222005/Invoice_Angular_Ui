@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ApiResponse } from '../models/Api-response';
 import { Vendor } from '../models/Vendor';
-import { Customer } from '../models/Customer';
+import { Customer } from '../models/customer';
 import { Itemmaster } from '../models/itemmaster';
 
 /** Dropdown data needed by the transaction screens (vendors, customers, items). */

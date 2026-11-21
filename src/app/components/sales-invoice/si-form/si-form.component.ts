@@ -30,7 +30,7 @@ import {
   SalesInvoiceDetail,
   SalesInvoiceRequest,
 } from '../../../models/sales-invoice';
-import { Customer } from '../../../models/Customer';
+import { Customer } from '../../../models/customer';
 import { Itemmaster } from '../../../models/itemmaster';
 import { getApiMessage, toApiDate } from '../../../shared/api-helpers';
 import { calcLine, round2 } from '../../../shared/money';
